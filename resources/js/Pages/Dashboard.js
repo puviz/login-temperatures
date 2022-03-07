@@ -9,9 +9,16 @@ export default function Dashboard(props) {
     const [processing, setProcessing] = useState(false);
 
     const getTemperatureHistory = useCallback(() => {
-        axios.get("api/temperature-history").then((res) => {
-            setItems(res.data);
-        });
+        setProcessing(true);
+        axios
+            .get("api/temperature-history")
+            .then((res) => {
+                setItems(res.data);
+            })
+            .catch(function (err) {
+                console.log("Error", err.message);
+            });
+        setProcessing(false);
     }, []);
 
     const sortTemperature = () => {
@@ -54,6 +61,7 @@ export default function Dashboard(props) {
                                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3"
                                 type="button"
                                 onClick={sortTemperature}
+                                processing={processing}
                             >
                                 Hottest First
                             </Button>

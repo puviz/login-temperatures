@@ -3455,9 +3455,13 @@ function Dashboard(props) {
       setProcessing = _useState4[1];
 
   var getTemperatureHistory = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    setProcessing(true);
     axios.get("api/temperature-history").then(function (res) {
       setItems(res.data);
+    })["catch"](function (err) {
+      console.log("Error", err.message);
     });
+    setProcessing(false);
   }, []);
 
   var sortTemperature = function sortTemperature() {
@@ -3499,6 +3503,7 @@ function Dashboard(props) {
               className: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3",
               type: "button",
               onClick: sortTemperature,
+              processing: processing,
               children: "Hottest First"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
               className: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",
@@ -3550,11 +3555,18 @@ function Welcome(props) {
       className: "relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "fixed top-0 right-0 px-6 py-4 sm:block",
-        children: props.auth.user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        children: props.auth.user && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
           href: route("dashboard"),
           className: "text-sm text-gray-700 underline",
           children: "Dashboard"
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "max-w-6xl mx-auto sm:px-6 lg:px-8",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "ml-4 leading-7 text-4xl pb-2 font-bold font-weight-bold text-gray-500",
+          children: "Welcome to Login Temperatures"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "flex justify-center mt-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
             href: route("login"),
             className: "text-sm text-gray-700 underline",
@@ -3564,13 +3576,7 @@ function Welcome(props) {
             className: "ml-4 text-sm text-gray-700 underline",
             children: "Register"
           })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "max-w-6xl mx-auto sm:px-6 lg:px-8",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "ml-4 leading-7 text-3xl pb-2 font-bold font-weight-bold text-gray-500",
-          children: "Welcome to Login Temperatures"
-        })
+        })]
       })]
     })]
   });
