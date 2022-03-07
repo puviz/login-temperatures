@@ -5,8 +5,6 @@ Login Temperatures is webapp that will store the current temperature of two citi
 
 ![login_temperatures](https://user-images.githubusercontent.com/31714525/156969288-da2a1207-784a-4b48-94a8-29058fbdacde.png)
 
-Login Temperatures is initiated using PHP(Laravel) and React. Used 
-
 Application is initiated using PHP(Laravel) with repository architecture and Laravel Breeze for frontend implementation (React).In frontend used react hooks for component life cycles meantime used axios for request and get response to frontend. In backend used web routes for render react components through controller Inertia.js. Laravel sanctum is used to authenticate the user.  
 
 ## Used Technologies
