@@ -17,7 +17,7 @@ class CreateTemperatureHistoriesTable extends Migration
     {
         Schema::create('temperature_histories', function (Blueprint $table) {
             $table->id();
-            $table->integer('temprature');
+            $table->integer('temperature');
             $table->string('city');
             $table->foreignIdFor(User::class);
             $table->timestamps();

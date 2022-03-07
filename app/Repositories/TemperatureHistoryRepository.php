@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Contracts\TemperatureHistoryContract;
+use App\Contracts\Repositories\TemperatureHistoryContract;
 use App\Models\TemperatureHistory;
 
 class TemperatureHistoryRepository implements TemperatureHistoryContract
@@ -35,7 +35,6 @@ class TemperatureHistoryRepository implements TemperatureHistoryContract
     /**
      * Retrieve all temperature history.
      *
-     * @return mixed
      */
     public function getTemperatureHistory()
     {

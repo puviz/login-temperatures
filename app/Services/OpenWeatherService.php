@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Services\Weather;
+namespace App\Services;
 
-use App\Contracts\WeatherContract;
+use App\Contracts\Services\WeatherContract;
+use Illuminate\Support\Facades\Http;
 
-class OpenWeather implements WeatherContract
+class OpenWeatherService implements WeatherContract
 {
-    public function getCitiesWeather(array $cityCodes)
+    public function getCitiesWeather()
     {
-        // Todo: Need to implement
+        $openConfigs = config('services.open_weather');
+        return Http::get(
+            "https://api.openweathermap.org/data/2.5/group?id={$openConfigs['city_list']}&units=metric&appid={$openConfigs['key']}"
+        );
     }
 }

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Contracts;
+namespace App\Contracts\Services;
 
 interface WeatherContract
 {
     /**
      * Retrieve cities weather info.
      *
-     * @param array $cityCodes
      * @return mixed
      */
-    public function getCitiesWeather(array $cityCodes);
+    public function getCitiesWeather();
 
 }

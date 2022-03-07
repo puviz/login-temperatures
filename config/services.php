@@ -32,5 +32,6 @@ return [
 
     'open_weather' => [
         'key' => env('OPEN_WEATHER_KEY'),
+        'city_list' => env('OPEN_WEATHER_CITY_ID_LIST')
     ],
 ];

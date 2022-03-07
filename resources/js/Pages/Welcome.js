@@ -34,7 +34,7 @@ export default function Welcome(props) {
                 </div>
 
                 <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                    <div className="ml-4 text-lg leading-7 font-semibold">
+                    <div className="ml-4 leading-7 text-3xl pb-2 font-bold font-weight-bold text-gray-500">
                         Welcome to Login Temperatures
                     </div>
                 </div>
